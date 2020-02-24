@@ -1,23 +1,21 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="babysharebarra">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>My Adults</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding class="babysharefondo">
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
+	  <ion-item *ngFor="let adult of myAdults">
+		<ion-thumbnail item-start>
+		  <img [src]="adult.photo">
+		</ion-thumbnail>
+		<h2>{{ adult.name }}</h2>
+		<p>{{ adult.birth  }}</p>
+		<button ion-button clear item-end>View</button>
+	  </ion-item>
   </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
 </ion-content>

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="babysharebarra">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Baby Log</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="babysharefondo">
+	<ion-card>
+	  <img [src]="baby.photo"/>
+	  <ion-card-content>
+		<ion-card-title>
+		  {{ baby.name }}
+		</ion-card-title>
+
+	  </ion-card-content>
+	</ion-card>
+	
+	<ion-card *ngFor="let evento of eventos; let i = index">
+	  <ion-item>
+		<ion-avatar item-start>
+		  <img src="assets/imgs/charlygarcia.jpg">
+		</ion-avatar>
+		<h2>{{ evento.title }}</h2>
+		<p>{{ evento.time }}</p>
+	  </ion-item>
+
+	  <ion-card-content>
+		<p>{{ evento.subtitle }}</p>
+	  </ion-card-content>
+	</ion-card>
+	
+  <ion-fab right bottom>
+    <button ion-fab color="babysharebarra"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>
